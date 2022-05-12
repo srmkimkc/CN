@@ -1,0 +1,90 @@
+AIM: To write a java program for application using TCP Sockets Links
+PROCEDURE:
+1. Start the program.
+2. Get the frame size from the user
+3. To create the frame based on the user request.
+4. To send frames to server from the client side.
+5. If your frames reach the server it will send ACK signal to client otherwise it
+will send NACK signal to client.
+6. Stop the program
+SOURCE CODE:
+Server
+import java.net.*;
+import java.io.*;
+public class EServer
+{
+public static void main(String args[])
+{
+ServerSocket s=null;
+String line;
+DataInputStream is;
+PrintStream ps;
+Socket c=null;
+try
+{
+s=new ServerSocket(9000);
+}
+catch(IOException e)
+{
+}
+try
+{
+System.out.println(e);
+c=s.accept();
+is=new DataInputStream(c.getInputStream());
+ps=new PrintStream(c.getOutputStream());
+while(true)
+{
+line=is.readLine();
+ps.println(line);
+}
+}
+catch(IOException e)
+{
+System.out.println(e);
+}
+}
+}
+Client
+import java.net.*;
+import java.io.*;
+public class EClient
+{
+public static void main(String arg[])
+{
+Socket c=null;
+String line;
+DataInputStream is,is1;
+PrintStream os;
+try
+{
+InetAddress ia = InetAddress.getLocalHost();
+c=new Socket(ia,9000);
+}
+catch(IOException e)
+{
+}
+try
+{
+System.out.println(e);
+os=new PrintStream(c.getOutputStream());
+is=new DataInputStream(System.in);
+is1=new DataInputStream(c.getInputStream());
+while(true)
+{
+System.out.println("Client:");
+line=is.readLine();
+os.println(line);
+System.out.println("Server:" + is1.readLine());
+ 
+}
+catch(IOException e)
+{
+System.out.println("Socket Closed!");
+ }
+} }
+
+
+
+Input:-
+random messages
