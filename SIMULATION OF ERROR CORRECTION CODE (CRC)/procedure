@@ -8,3 +8,9 @@ PROCEDURE:
 7. The same process is repeated at the receiver.
 8. If the remainder is zero there is no error otherwise there is some error in the received bits 
 9. Run the program.
+
+
+Inputs:-
+enter generatore - 1101
+enter data - 100100
+received code word - 100100001
