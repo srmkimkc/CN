@@ -77,3 +77,10 @@ catch(Exception e)
 {
 System.out.println(e);
 }}}
+
+
+
+Input:-
+6A:08:AA:C2
+
+
